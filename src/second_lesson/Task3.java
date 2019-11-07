@@ -3,6 +3,28 @@ package second_lesson;
 import java.util.*;
 
 public class Task3 {
+  public static void showHashSetList(Set<String> str)
+  {
+    Iterator<String> iterLinked = str.iterator();
+    while(iterLinked.hasNext())
+    {
+      System.out.println(iterLinked.next());
+    }
+    System.out.println("");
+
+
+  }
+  public static void showLinkedList(LinkedList<String> str)
+  {
+    Iterator<String> iterLinked = str.iterator();
+     while(iterLinked.hasNext())
+    {
+      System.out.println(iterLinked.next());
+    }
+    System.out.println("");
+
+
+  }
 
       public static void main(String[] args) {
 
@@ -30,37 +52,19 @@ public class Task3 {
         listLinked.add("apricot");
         listLinked.add("pineapple");
 
-        Iterator<String> iterLinked = listLinked.iterator();
-        System.out.println("Linked List ");
-        while(iterLinked.hasNext())
-        {
-            System.out.println(iterLinked.next());
-        }
-        System.out.println("");
 
-        Iterator<String> iterHach = listHash.iterator();
-        System.out.println("HashSet list");
-        while (iterHach.hasNext())
-        {
-            System.out.println(iterHach.next());
-        }
-        System.out.println(" ");
+        System.out.println("HashSet before");
+        showHashSetList(listHash);
+        System.out.println("Linked List");
+        showLinkedList(listLinked);
+        listHash.retainAll(listLinked);
+        System.out.println("Hashset after:");
+        showHashSetList(listHash);
 
-          Iterator newIterator = listHash.iterator();
-
-          for ( String s : listHash)
-          {
-              if (!listLinked.contains(s)) {
-                  System.out.println("not contains : " + s);
-                //  newIterator.remove(s);
-              }
-          }
-
-
-
-          System.out.println(listHash);
 
 
 
     }
+
+
 }
